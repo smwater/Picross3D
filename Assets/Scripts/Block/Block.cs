@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public enum State
+    {
+        Normal,
+        Crushed,
+        Protected
+    }
+
+    public State NowState { get; private set; }
+
+    private readonly Color NORMAL_COLOR = Color.white;
     private readonly Color PROTECT_COLOR = Color.yellow;
     private Renderer _renderer;
 
@@ -17,7 +27,16 @@ public class Block : MonoBehaviour
     /// </summary>
     public void Crush()
     {
-        gameObject.SetActive(false);
+        switch (NowState)
+        {
+            case State.Normal:
+                gameObject.SetActive(false);
+                NowState = State.Crushed;
+                break;
+
+            default:
+                break;
+        }
     }
 
     /// <summary>
@@ -25,6 +44,20 @@ public class Block : MonoBehaviour
     /// </summary>
     public void Protect()
     {
-        _renderer.material.color = PROTECT_COLOR;
+        switch (NowState)
+        {
+            case State.Normal:
+                _renderer.material.color = PROTECT_COLOR;
+                NowState = State.Protected;
+                break;
+
+            case State.Protected:
+                _renderer.material.color = NORMAL_COLOR;
+                NowState = State.Normal;
+                break;
+
+            default:
+                break;
+        }
     }
 }
