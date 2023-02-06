@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 20f, Color.black);
 
         RaycastHit hit;
-        int layerMask = 1 << LayerMask.NameToLayer(Optimization.StringBlock);
+        int layerMask = 1 << LayerMask.NameToLayer(Optimization.STRING_BLOCK);
         // Block에 한해서만 동작하도록 레이어 마스크 사용
         if (Physics.Raycast(ray, out hit, layerMask))
         {

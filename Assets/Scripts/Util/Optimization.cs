@@ -1,4 +1,4 @@
 public static class Optimization
 {
-    public static readonly string StringBlock = "Block";
+    public static readonly string STRING_BLOCK = "Block";
 }
