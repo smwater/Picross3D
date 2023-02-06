@@ -20,7 +20,14 @@ public class PlayerController : MonoBehaviour
         int layerMask = 1 << LayerMask.NameToLayer(Optimization.StringBlock);
         if (Physics.Raycast(ray, out hit, layerMask))
         {
-            // 플레이어 입력이 있었다면, 블럭 부수기
+            if (_playerInput.IsClick == false)
+            {
+                return;
+            }
+
+            Block block = hit.transform.GetComponent<Block>();
+
+            block.Crush();
         }
     }
 }
