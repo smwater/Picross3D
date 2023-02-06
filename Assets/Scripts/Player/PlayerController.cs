@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour
 
             Block block = hit.transform.GetComponent<Block>();
 
-            block.Crush();
+            if (_playerInput.CrushMode == true)
+            {
+                block.Crush();
+            }
         }
     }
 }
