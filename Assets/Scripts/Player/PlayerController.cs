@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 20f, Color.black);
 
         RaycastHit hit;
-        int layerMask = 1 << LayerMask.NameToLayer("Block");
+        int layerMask = 1 << LayerMask.NameToLayer(Optimization.StringBlock);
         if (Physics.Raycast(ray, out hit, layerMask))
         {
             // 플레이어 입력이 있었다면, 블럭 부수기
