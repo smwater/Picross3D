@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
             {
                 block.Crush();
             }
+
+            if (_playerInput.NowMode == PlayerInput.Mode.Protect)
+            {
+                block.Protect();
+            }
         }
     }
 }
