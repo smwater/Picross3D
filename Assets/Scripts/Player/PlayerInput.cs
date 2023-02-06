@@ -6,7 +6,7 @@ public class PlayerInput : MonoBehaviour
 {
     public bool IsClick { get; private set; }
 
-    void Update()
+    private void Update()
     {
         IsClick = Input.GetMouseButtonDown(0);
     }
