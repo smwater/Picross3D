@@ -18,8 +18,10 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
         int layerMask = 1 << LayerMask.NameToLayer(Optimization.StringBlock);
+        // Block에 한해서만 동작하도록 레이어 마스크 사용
         if (Physics.Raycast(ray, out hit, layerMask))
         {
+            // 플레이어 입력이 없다면 반환
             if (_playerInput.IsClick == false)
             {
                 return;
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
             Block block = hit.transform.GetComponent<Block>();
 
-            if (_playerInput.CrushMode == true)
+            if (_playerInput.NowMode == PlayerInput.Mode.Crush)
             {
                 block.Crush();
             }

@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public enum Mode
+    {
+        Rotation,
+        Crush,
+        Protect
+    }
+
     public bool IsClick { get; private set; }
-    public bool RotationMode { get; private set; }
-    public bool CrushMode { get; private set; }
-    public bool ProtectMode { get; private set; }
+    public Mode NowMode { get; private set; }
 
     private void Update()
     {
         IsClick = Input.GetMouseButtonDown(0);
 
-        if (!CrushMode && !ProtectMode)
+        NowMode = Mode.Rotation;
+
+        if (Input.GetKey(KeyCode.Q))
         {
-            RotationMode = true;
-        }
-        else
-        {
-            RotationMode = false;
+            NowMode = Mode.Crush;
+            return;
         }
 
-        CrushMode = Input.GetKey(KeyCode.Q);
-        ProtectMode = Input.GetKey(KeyCode.E);
+        if (Input.GetKey(KeyCode.E))
+        {
+            NowMode = Mode.Protect;
+            return;
+        }
     }
 }
