@@ -43,6 +43,11 @@ public class CrushMode : MonoBehaviour
     /// </summary>
     private void Off()
     {
+        if (_image.sprite == _modeOffSprite)
+        {
+            return;
+        }
+
         _image.sprite = _modeOffSprite;
     }
 }

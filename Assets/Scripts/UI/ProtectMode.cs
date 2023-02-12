@@ -43,6 +43,11 @@ public class ProtectMode : MonoBehaviour
     /// </summary>
     private void Off()
     {
+        if (_image.sprite == _modeOffSprite)
+        {
+            return;
+        }
+
         _image.sprite = _modeOffSprite;
     }
 }
