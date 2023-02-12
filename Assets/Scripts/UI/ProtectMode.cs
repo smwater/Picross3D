@@ -20,11 +20,13 @@ public class ProtectMode : MonoBehaviour
 
     private void OnEnable()
     {
+        GameManager.Instance.ModeOff.AddListener(Off);
         GameManager.Instance.ProtectModeOn.AddListener(On);
     }
 
     private void OnDisable()
     {
+        GameManager.Instance.ModeOff.RemoveListener(Off);
         GameManager.Instance.ProtectModeOn.RemoveListener(On);
     }
 
@@ -39,7 +41,7 @@ public class ProtectMode : MonoBehaviour
     /// <summary>
     /// 모드가 꺼졌을 때의 스프라이트로 전환하는 함수
     /// </summary>
-    public void Off()
+    private void Off()
     {
         _image.sprite = _modeOffSprite;
     }
