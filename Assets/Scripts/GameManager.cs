@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameManager : SingletoneBehaviour<MonoBehaviour>
+public class GameManager : SingletoneBehaviour<GameManager>
 {
     public UnityEvent ModeOff = new UnityEvent();
     public UnityEvent CrushModeOn = new UnityEvent();

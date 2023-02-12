@@ -18,6 +18,16 @@ public class CrushMode : MonoBehaviour
         _modeOffSprite = _image.sprite;
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.CrushModeOn.AddListener(On);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.CrushModeOn.RemoveListener(On);
+    }
+
     /// <summary>
     /// 모드가 켜졌을 때의 스프라이트로 전환하는 함수
     /// </summary>
