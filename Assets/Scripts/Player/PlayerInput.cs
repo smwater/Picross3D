@@ -18,9 +18,9 @@ public class PlayerInput : MonoBehaviour
     {
         IsClick = Input.GetMouseButtonDown(0);
 
-        if (IsClick == false) { return; }
-
         NowMode = Mode.Rotation;
+
+        if (IsClick == false) { return; }
 
         if (Input.GetKey(KeyCode.Q))
         {
