@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ProtectMode : MonoBehaviour
 {
+    [Header ("Sprite")]
+    [Tooltip ("해당하는 스프라이트를 넣으세요.")]
     [SerializeField] private Sprite _modeOnSprite;
 
     private Image _image;
